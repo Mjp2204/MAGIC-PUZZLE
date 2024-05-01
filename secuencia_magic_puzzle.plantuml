@@ -1,0 +1,20 @@
+@startuml
+
+Jugador -> main_game_loop(): Iniciar juego
+main_game_loop() -> CuadradoPrincipal: Iniciar juego
+CuadradoPrincipal -> CuadradoPrincipal: Inicializar cuadrado
+CuadradoPrincipal -> dibujar_cuadrado(): Dibujar cuadrado inicial
+dibujar_cuadrado() -> pygame: blit()
+
+loop hasta que el juego termine:
+    Jugador -> main_game_loop(): Realizar movimiento
+    main_game_loop() -> CuadradoPrincipal: Realizar movimiento
+    CuadradoPrincipal -> CuadradoPrincipal: Procesar movimiento
+    CuadradoPrincipal -> dibujar_cuadrado(): Actualizar pantalla
+    dibujar_cuadrado() -> pygame: blit()
+
+CuadradoPrincipal -> main_game_loop(): Juego terminado
+main_game_loop() -> Jugador: Mostrar mensaje de victoria
+
+
+@enduml

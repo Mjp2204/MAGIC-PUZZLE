@@ -1,0 +1,21 @@
+@startuml
+
+package Logica{
+    interface Pantalla
+    Mostrar ..|> Pantalla
+    Dibujar ..|> Pantalla
+
+    class Cuadros{
+        + Celdas [] imagenes
+        + movimientos
+        - cargar_imagen()
+        - movimientos(arriba, abajo, izquierda, derecha) 
+        - dibujar_cuadrado()
+        - obtener_posicion_vacia()
+        - intercambiar_imagenes()
+    }
+}
+
+principal -- Cuadros
+Pantalla --* Cuadros
+@enduml
